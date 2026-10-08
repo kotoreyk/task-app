@@ -7,34 +7,35 @@
     <title>taskApp</title>
 </head>
 <body>
-    <header> 
-        <h1>Мои задачи</h1>
-    </header>
-    <div class="container">
+    <div class="wrapp">
+        <header> 
+            <h1>Мои задачи</h1>
+        </header>
+        <div class="container">
 
-        <div class="left-path">
-            <h1>Фильтры</h1>
+            <div class="left-path">
+                <h1>Фильтры</h1>
 
-            <div class="filter-container">
-                <button class="all">Все</button>
-                <button class="important">Важные</button>
-                <button class="complete">Выполненные</button>
+                <div class="filter-container">
+                    <button class="all">Все</button>
+                    <button class="important">Важные</button>
+                    <button class="complete">Выполненные</button>
+                </div>
+            </div>
+
+            <div class="right-path">
+                <div class="upside">
+                    <ul id="taskList">
+
+                    </ul>
+                </div>
+
+                <div class="botside">
+                    <textarea name="taskEnterArea" id="taskEnter"> </textarea>
+                    <button class="newTask">Новая задача</button>
+                </div>
             </div>
         </div>
-
-        <div class="right-path">
-            <div class="upside">
-                <ul id="taskList">
-
-                </ul>
-            </div>
-
-            <div class="botside">
-                <textarea name="taskEnterArea" id="taskEnter"> </textarea>
-                <button class="newTask">Новая задача</button>
-            </div>
-        </div>
-
     </div>
     <script src="script.js"></script>
 </body>

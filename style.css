@@ -1,4 +1,5 @@
 .root{
+--hd-color: rgb(40, 88, 218);
 --light-blue: #3164ef;
 --main-color: #1b4dd9;
 --second-color: #143eb2;
@@ -12,25 +13,38 @@ body{
     flex-direction: column;
 }
 
+.wrapp{
+    height: none;
+    width: none;
+}
+
 button{
     color: white;
 }
 
 header{
-    background: #3164ef;
+    background: rgb(40, 88, 218);
     width: 100%;
+    height: 95px;
     text-align: center;
+    min-width: 400px;
+}header h1{
+    margin: 0;
+    padding: 20px;
 }
 
 .container{
     display: flex;
     flex-direction: row;
+    height: calc(100vh - 95px);
+    min-height: 300px;
+    
 }
 
 .left-path{
     width: 20%;
     background: #143eb2;
-    
+    min-width: 200px;
 }
 .left-path h1{
     margin: 20px;
@@ -40,26 +54,29 @@ header{
 .filter-container{
     display: flex;
     flex-direction: column;
-    height: 500px;
     padding: 15px;
+
 }
 .all{
     padding: 5px;
     background: #3164ef;
     border-color: aliceblue;
     margin-top: 15px;
+    border-radius: 8px;
 }
 .important{
     padding: 5px;
     background: #3164ef;
     border-color: aliceblue;
     margin-top: 15px;
+    border-radius: 8px;
 }
 .complete{
     margin-top: 15px;
     padding: 5px;
     background: #3164ef;
     border-color: aliceblue;
+    border-radius: 8px;
 }
 
 .right-path{
@@ -71,9 +88,11 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    min-width: 200px;
 }
 
 .upside{
+    border-radius: 10px;
     background: #3164ef;
     width: 100%;
     height: 100%;
@@ -85,7 +104,7 @@ header{
 }
 
 .botside{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 textarea{
@@ -93,6 +112,8 @@ textarea{
     width: 100%;
     border-color: aliceblue;
     color: white;
+    border-radius: 10px;
+    
 }
 
 .newTask{
@@ -100,5 +121,5 @@ textarea{
     width: 100%;
     background: #3164ef;
     border-color: aliceblue;
-    box-shadow: 5px #040404;
+    border-radius: 10px;
 }
