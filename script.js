@@ -26,6 +26,11 @@ button.addEventListener("click",function(){
     
     checkbox.addEventListener("change", function(){
     tasks[checkbox.dataset.taskIndex].completed = checkbox.checked;
+    if(checkbox.checked === true){
+        task.style.color = "rgb(13, 255, 0)";
+    }else{
+        task.style.color = "white";
+    }
     console.log(tasks[checkbox.dataset.taskIndex]);
 })
 })
