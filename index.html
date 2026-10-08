@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <header> 
         <h1>Мои задачи</h1>
     </header>
+    <div class="container">
+
+        <div class="left-path">
+            <h1>Фильтры</h1>
+
+            <div class="filter-container">
+                <button class="all">Все</button>
+                <button class="important">Важные</button>
+                <button class="complete">Выполненные</button>
+            </div>
+        </div>
+
+        <div class="right-path">
+            <div class="upside">
+                <textarea name="tasks" id="TaskBox">Сделать проект
+                                                    почитать js
+                                                    погулять
+                                                    </textarea>
+            </div>
+            <div class="botside">
+                <button class="newTask">Новая задача</button>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
