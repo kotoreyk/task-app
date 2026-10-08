@@ -9,9 +9,22 @@ const taskList = document.getElementById("taskList");
 let tasks = [];
 
 button.addEventListener("click",function(){
-    tasks.push(taskInput.value)
+    tasks.push({
+        text: taskInput.value,
+        completed: false})
+
     const task = document.createElement("li");
     task.textContent = taskInput.value;
     taskList.appendChild(task);
     taskInput.value = "";
+    
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox"
+    task.appendChild(checkbox);
+    checkbox.dataset.taskIndex =tasks.length-1;
+    console.log(checkbox.dataset.taskIndex);
+})
+
+checkbox.addEventListener("change", function(){
+    tasks[checkbox.dataset.taskIndex].completed = ;
 })
