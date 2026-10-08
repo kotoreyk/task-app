@@ -23,8 +23,10 @@ button.addEventListener("click",function(){
     task.appendChild(checkbox);
     checkbox.dataset.taskIndex =tasks.length-1;
     console.log(checkbox.dataset.taskIndex);
+    
+    checkbox.addEventListener("change", function(){
+    tasks[checkbox.dataset.taskIndex].completed = checkbox.checked;
+    console.log(tasks[checkbox.dataset.taskIndex]);
+})
 })
 
-checkbox.addEventListener("change", function(){
-    tasks[checkbox.dataset.taskIndex].completed = ;
-})

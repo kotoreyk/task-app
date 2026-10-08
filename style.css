@@ -5,10 +5,15 @@
 }
 
 body{
+    color: white;
     margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;
+}
+
+button{
+    color: white;
 }
 
 header{
@@ -76,7 +81,7 @@ header{
 }
 
 .taskList{
-
+    color: white;
 }
 
 .botside{
@@ -87,6 +92,7 @@ textarea{
     background-color: #3164ef;
     width: 100%;
     border-color: aliceblue;
+    color: white;
 }
 
 .newTask{
