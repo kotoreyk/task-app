@@ -127,3 +127,8 @@ textarea{
     border-color: aliceblue;
     border-radius: 10px;
 }
+
+.delete-btn{
+    background: none;
+    border: 0;
+}
