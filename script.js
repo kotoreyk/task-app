@@ -1,14 +1,14 @@
 console.log("JS работает");
 
 const taskInput = document.getElementById("taskEnter");
+const taskList = document.getElementById("taskList");
 
 const button = document.querySelector(".newTask");
-
-const taskList = document.getElementById("taskList");
 
 let tasks = [];
 
 button.addEventListener("click",function(){
+    if(taskInput.value.trim() !== ""){
     tasks.push({
         text: taskInput.value,
         completed: false})
@@ -32,6 +32,6 @@ button.addEventListener("click",function(){
         task.style.color = "white";
     }
     console.log(tasks[checkbox.dataset.taskIndex]);
-})
+    })}
 })
 
