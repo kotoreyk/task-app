@@ -4,7 +4,7 @@ const taskInput = document.getElementById("taskEnter");
 const taskList = document.getElementById("taskList");
 
 const button = document.querySelector(".newTask");
-const completed = document.querySelector(".completed")
+const completedBtn = document.querySelector(".completed")
 
 let tasks = [];
 
@@ -13,7 +13,8 @@ button.addEventListener("click",function(){
     
     let newTask =  {
         text: taskInput.value.trim(),
-        completed: false
+        completed: false,
+        task: null
     };
 
     tasks.push(newTask);
@@ -23,6 +24,7 @@ button.addEventListener("click",function(){
     task.textContent = taskInput.value.trim();
     taskList.appendChild(task);
     taskInput.value = "";
+    newTask.task = task;
     
     //Галочка отмечающая выполнение
     const checkbox = document.createElement("input");
@@ -50,5 +52,23 @@ button.addEventListener("click",function(){
         tasks.splice(deleteTask,1);
         task.remove();
     })
+
+    let onCompleted = false;
+    completedBtn.addEventListener("click", function(){
+        if(onCompleted === false){
+            for(let i = 0; i < tasks.length; i++){
+                if(tasks[i].completed === false){
+                    tasks[i].task.style.display = "none";
+                }
+            }
+            onCompleted = true;
+        }else{
+            for(let i = 0; i < tasks.length; i++){
+             tasks[i].task.style.display = "list-item";
+            }onCompleted = false;
+        }
+    })
 }
+
 })
+
