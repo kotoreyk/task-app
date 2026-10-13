@@ -4,7 +4,8 @@ const taskInput = document.getElementById("taskEnter");
 const taskList = document.getElementById("taskList");
 
 const button = document.querySelector(".newTask");
-const completedBtn = document.querySelector(".completed")
+const completedBtn = document.querySelector(".completed");
+const allBtn = document.querySelector(".all");
 
 let tasks = [];
 
@@ -71,6 +72,13 @@ button.addEventListener("click",function(){
              tasks[i].task.style.display = "list-item";
             }onCompleted = false;
         }
+    })
+
+    allBtn.addEventListener("click", function(){
+        for(let i = 0; i < tasks.length; i++){
+             tasks[i].task.style.display = "list-item";
+            }
+        onCompleted = false;
     })
 }
 
