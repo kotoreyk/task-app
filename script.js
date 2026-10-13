@@ -39,6 +39,10 @@ button.addEventListener("click",function(){
         }else{
             task.style.color = "white";
         }
+
+        if(checkbox.checked === false && onCompleted === true){
+            task.style.display = "none";
+        }
     })
 
     //Конпка удаления задачи
