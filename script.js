@@ -6,6 +6,7 @@ const taskList = document.getElementById("taskList");
 const button = document.querySelector(".newTask");
 const completedBtn = document.querySelector(".completed");
 const allBtn = document.querySelector(".all");
+const importantBtn = document.querySelector(".important");
 
 let tasks = [];
 
@@ -15,19 +16,18 @@ button.addEventListener("click",function(){
     let newTask =  {
         text: taskInput.value.trim(),
         completed: false,
-        task: null
+        task: null,
+        important: false
     };
 
     tasks.push(newTask);
 
-    //Создание задачи в списке
     const task = document.createElement("li");
     task.textContent = taskInput.value.trim();
     taskList.appendChild(task);
     taskInput.value = "";
     newTask.task = task;
     
-    //Галочка отмечающая выполнение
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox"
     task.appendChild(checkbox);
@@ -37,16 +37,39 @@ button.addEventListener("click",function(){
         newTask.completed = checkbox.checked;
         if(checkbox.checked === true){
             task.style.color = "rgb(13, 255, 0)";
-        }else{
+        }else if(newTask.completed === false && newTask.important === false){
             task.style.color = "white";
+        }else if(newTask.completed === false && newTask.important === true){
+            task.style.color = "rgb(255, 170, 0)";
         }
 
         if(checkbox.checked === false && onCompleted === true){
             task.style.display = "none";
         }
     })
+    
+    task.addEventListener("click", function(event){
+        if(event.target === checkbox || event.target === deleteBtn){
 
-    //Конпка удаления задачи
+        }else{
+            if(checkbox.checked === false){
+                if(newTask.important !== true){
+                newTask.important = true;
+                task.style.color = "rgb(255, 170, 0)";
+                console.log("newTask.important = true;");
+                }else{
+                newTask.important = false;
+                task.style.color = "white";
+                console.log("newTask.important = false;");
+                }
+
+                if(newTask.important === false && onImportant === true){
+                task.style.display = "none";
+                }
+            }
+        }
+    })
+
     const deleteBtn = document.createElement("button");
     deleteBtn.className = 'delete-btn';
     deleteBtn.innerHTML = '&times;';
@@ -80,6 +103,25 @@ button.addEventListener("click",function(){
             }
         onCompleted = false;
     })
+
+    let onImportant = false;
+    importantBtn.addEventListener("click", function(){
+        if(onImportant === false){
+            for(let i = 0; i < tasks.length; i++){
+                if(tasks[i].important === false){
+                    tasks[i].task.style.display = "none";
+                }
+            }onImportant = true;
+        }else{
+            for(let i = 0; i < tasks.length; i++){
+                if(tasks[i].important === false){
+                    tasks[i].task.style.display = "list-item";
+                }
+            }onImportant = false;
+        }
+    })
+
+    
 }
 
 })
