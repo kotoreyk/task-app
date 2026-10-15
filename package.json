@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "electron main.js"
+  },
   "devDependencies": {
     "electron": "^44.7.2"
   }
