@@ -21,7 +21,8 @@ button.addEventListener("click",function(){
     };
 
     tasks.push(newTask);
-
+    window.taskAPI.saveTasks(tasks);
+    
     const task = document.createElement("li");
     task.textContent = taskInput.value.trim();
     taskList.appendChild(task);
@@ -125,4 +126,6 @@ button.addEventListener("click",function(){
 }
 
 })
+
+window.taskAPI.test();
 
