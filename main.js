@@ -2,16 +2,8 @@ const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('node:path')
 const fs = require('node:fs')
 
-let tasksFilePath = path.join(__dirname, 'tasks.json')
-
-fs.readFile(tasksFilePath, 'utf8', (ошибка, tasksJSON) => {
-    if(ошибка){
-            console.error(ошибка);
-        }else{
-            let loadedTasks = JSON.parse(tasksJSON);
-            console.log(loadedTasks);
-        }
-})
+let tasksFilePath = path.join(__dirname, 'tasks.json');
+let loadedTasks;
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -23,6 +15,31 @@ const createWindow = () => {
     })
 
     win.loadFile('index.html');
+
+    let pageLoaded = false;
+    let tasksLoaded = false;
+
+    function sendTasksIfReady(){
+        if(pageLoaded === true && tasksLoaded === true){
+            win.webContents.send('load-tasks', loadedTasks);
+        }
+    }
+    
+    win.webContents.on('did-finish-load', () => {
+            pageLoaded = true;
+            sendTasksIfReady();
+    })
+    
+    fs.readFile(tasksFilePath, 'utf8', (ошибка, tasksJSON) => {
+        if(ошибка){
+                console.error(ошибка);
+        }else{
+            loadedTasks = JSON.parse(tasksJSON);
+            tasksLoaded = true;
+            sendTasksIfReady();
+            console.log(loadedTasks);
+        }
+    })
 }
 
 ipcMain.on('save-tasks', (event, tasks) => {

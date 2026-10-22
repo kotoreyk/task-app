@@ -1,8 +1,10 @@
 const {contextBridge, ipcRenderer} = require('electron')
 
 contextBridge.exposeInMainWorld('taskAPI', {
-    test: () => {
-        console.log("Мост работает");
+    loadTasks: (callback) => {
+        ipcRenderer.on('load-tasks', (event, tasks) => {
+            callback(tasks);
+        });
     },
     saveTasks: (tasks) => {
         ipcRenderer.send('save-tasks', tasks);
